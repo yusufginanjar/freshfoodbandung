@@ -1,3 +1,5 @@
+{{-- dd($blogs) --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,97 +93,26 @@
         <div class="container">
             <h2>Our Products</h2>
             <div class="row">
+
+                @foreach ($products as $product)
                 <div class="col-6 col-lg-2 col-md-3">
-                    <div class="card">
-                        <div class="img-wrapper">
-                            <img src="assets/images/product_1.png" class="card-img-top" alt="...">
+                    <a href="/products/{{ $product->slug }}">
+                        <div class="card">
+                            <div class="img-wrapper">
+                                <img src="assets/images/product_1.png" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body">
+                            <h5 class="card-title">{{ $product->name }}</h5>
+                            <p class="card-text">{{ $product->price }}</p>
+                            <a href="cart.html" class="btn btn-danger">Check Out</a>
+                            </div>
+                            <div class="label">
+                                <span>{{ $product->badge }}</span>
+                            </div>
                         </div>
-                        <div class="card-body">
-                          <h5 class="card-title">BEEF MEATBALLS</h5>
-                          <p class="card-text">IDR 65,000</p>
-                          <a href="cart.html" class="btn btn-danger">Check Out</a>
-                        </div>
-                        <div class="label">
-                            <span>beef</span>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-6 col-lg-2 col-md-3">
-                    <div class="card">
-                        <div class="img-wrapper">
-                            <img src="assets/images/product_2.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">BEEF MEATBALLS</h5>
-                          <p class="card-text">IDR 65,000</p>
-                          <a href="cart.html" class="btn btn-danger">Check Out</a>
-                        </div>
-                        <div class="label">
-                            <span>beef</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-2 col-md-3">
-                    <div class="card">
-                        <div class="img-wrapper">
-                            <img src="assets/images/product_3.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">BEEF MEATBALLS</h5>
-                          <p class="card-text">IDR 65,000</p>
-                          <a href="cart.html" class="btn btn-danger">Check Out</a>
-                        </div>
-                        <div class="label">
-                            <span>beef</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-2 col-md-3">
-                    <div class="card">
-                        <div class="img-wrapper">
-                            <img src="assets/images/product_4.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">BEEF MEATBALLS</h5>
-                          <p class="card-text">IDR 65,000</p>
-                          <a href="cart.html" class="btn btn-danger">Check Out</a>
-                        </div>
-                        <div class="label">
-                            <span>beef</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-2 col-md-3">
-                    <div class="card">
-                        <div class="img-wrapper">
-                            <img src="assets/images/product_5.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">BEEF MEATBALLS</h5>
-                          <p class="card-text">IDR 65,000</p>
-                          <a href="cart.html" class="btn btn-danger">Check Out</a>
-                        </div>
-                        <div class="label">
-                            <span>beef</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-2 col-md-3">
-                    <div class="card">
-                        <div class="img-wrapper">
-                            <img src="assets/images/product_6.png" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">BEEF MEATBALLS</h5>
-                          <p class="card-text">IDR 65,000</p>
-                          <a href="cart.html" class="btn btn-danger">Check Out</a>
-                        </div>
-                        <div class="label">
-                            <span>beef</span>
-                        </div>
-                    </div>
-                </div>
-               
+                @endforeach
 
             </div>
             <div class="d-flex justify-content-center mt-4">
@@ -194,42 +125,21 @@
         <div class="container">
             <div class="sub-title"><h2>Blogs</h2></div>
             <div class="row">
+                @for ($i = 0; $i < 3; $i++)
                 <div class="col-md-4 blog">
-                    <a href="">
+                    <a href="blog/{{ $blogs[$i]->slug }}">
                         <div class="blog-wrapper">
                             <h4 class="blog-title">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                {{ $blogs[$i]->title }}
                             </h4>
-                            <p class="blog-date">March 13, 2022</p>
+                            <p class="blog-date">{{ $blogs[$i]->created_at }}</p>
                             <hr>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>{{ $blogs[$i]->excerpt }}</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 blog">
-                    <a href="single-blog.html">
-                        <div class="blog-wrapper">
-                            <h4 class="blog-title">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                            </h4>
-                            <p class="blog-date">March 13, 2022</p>
-                            <hr>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 blog">
-                    <a href="single-blog.html">
-                        <div class="blog-wrapper">
-                            <h4 class="blog-title">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                            </h4>
-                            <p class="blog-date">March 13, 2022</p>
-                            <hr>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </a>
-                </div>
+                @endfor
+
             </div>
         </div>
     </section>
@@ -249,39 +159,16 @@
         <div class="container">
             <h2 class="sub-title">Gallery</h2>
              <div class="row">
-                 <div class="col-6 col-md-3 col-lg-2">
-                     <a href="single.html">
-                         <div class="img-wrapper">
-                             <img src="assets/images/product_1.png" alt="">
-                        </div>
-                    </a>
+
+                @foreach ($galleries as $gallery)
+                <div class="col-6 col-md-3 col-lg-2">
                     <a href="single.html">
                         <div class="img-wrapper">
-                            <img src="assets/images/product_5.png" alt="">
-                        </div>
-                    </a>
-                 </div>
-                 <div class="col-6 col-md-3 col-lg-2">
-                     <a href="single.html">
-                         <div class="img-wrapper">
-                             <img src="assets/images/product_2.png" alt="">
-                        </div>
-                    </a>
-                 </div>
-                 <div class="col-6 col-md-3 col-lg-2">
-                     <a href="single.html">
-                         <div class="img-wrapper">
-                             <img src="assets/images/product_3.png" alt="">
-                        </div>
-                    </a>
-                 </div>
-                 <div class="col-6 col-md-3 col-lg-2">
-                     <a href="single.html">
-                         <div class="img-wrapper">
-                             <img src="assets/images/product_4.png" alt="">
-                        </div>
-                    </a>
-                 </div>
+                            <img src="assets/images/{{ $gallery->image }}" alt="">
+                       </div>
+                   </a>
+                </div>
+                @endforeach
      
              </div>
         </div> 

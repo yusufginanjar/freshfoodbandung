@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Product;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -123,6 +124,16 @@ class DatabaseSeeder extends Seeder
         ]);
         Gallery::create([
             'image' => "product_5.png",
+        ]);
+
+
+        User::create([
+            'first_name' => 'Yusuf',
+            'last_name' => 'Ginanjar',
+            'username' => 'yusufginanjar',
+            'email' => 'yusufgp@gmail.com',
+            'password' => 'password',
+            'whatsapp' => '12345678910'
         ]);
     }
 }

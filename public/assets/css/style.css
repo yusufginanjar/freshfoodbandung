@@ -440,9 +440,9 @@ footer li.address::before{
         display: block;
         float: right;
         position: absolute;
-        right: 0;
+        left: 0;
         top: 10px;
-        border-right: solid 1px #eee;
+        border-left: solid 1px #eee;
     }
 
     #home-hero{
@@ -529,10 +529,12 @@ footer li.address::before{
 #page-single{
     color:var(--red);
 }
+#blogs .navbar a,
 #page-products .navbar a,
 #page-single .navbar a{
     color: var(--red);
 }
+#blogs .navbar .navbar-toggler,
 #page-products .navbar .navbar-toggler,
 #page-single .navbar .navbar-toggler{
     color: var(--red);

@@ -9,14 +9,13 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-
     public function index()
     {
         return view('index', [
             "title" => "Home",
-            "blogs" => Blog::all(),
-            "products" => Product::all(),
-            "galleries" => Gallery::all()
+            "products" => Product::take(6)->get(),
+            "blogs" => Blog::take(3)->get(),
+            "galleries" => Gallery::take(6)->get()
         ]);
     }
 }

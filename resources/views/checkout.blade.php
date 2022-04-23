@@ -41,10 +41,10 @@
                     <form>
                         <div class="row">
                         <div class="col-md-7">
-                            <label for="fname" class="form-label">First name*</label>
-                            <input type="text" class="form-control" id="fname" name="fname" >
-                            <label for="lname" class="form-label">Last name*</label>
-                            <input type="text" class="form-control" id="lname" name="lname" >
+                            <label for="first_name" class="form-label">First name*</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ old('first_name') }}">
+                            <label for="last_name" class="form-label">Last name*</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" >
 
                             <label for="company" class="form-label">Company Name (Optional)</label>
                             <input type="text" class="form-control" id="company" name="company" >
@@ -66,7 +66,7 @@
                             
                             <div class="mb-3 checkbox">
                                 <input type="checkbox" class="form-check-input" id="checkbox">
-                                <label class="form-check-label" id="checkbox-label" for="checkbox">I don't have WhatsApp number and want to reveice info via e-mail</label>
+                                <label class="form-check-label" id="checkbox-label" for="checkbox">(Alternative) I don't have WhatsApp number and want to reveice info via e-mail</label>
                             </div>
 
                             <label for="email" class="form-label">Email address*</label>

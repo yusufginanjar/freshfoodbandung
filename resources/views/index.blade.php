@@ -63,7 +63,7 @@
             <div class="row">
 
                 @foreach ($products as $product)
-                <div class="col-6 col-lg-2 col-md-3">
+                <div class="col-6 col-lg-2 col-md-3 card-wrapper">
                     <a href="/products/{{ $product->slug }}">
                         <div class="card">
                             <div class="img-wrapper">
@@ -72,7 +72,7 @@
                             <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
                             <p class="card-text">{{ $product->price }}</p>
-                            <a href="cart.html" class="btn btn-danger">Check Out</a>
+                            <a href="cart.html" class="btn btn-danger check-out">Check Out</a>
                             </div>
                             <div class="label">
                                 <span>{{ $product->badge }}</span>

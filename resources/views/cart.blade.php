@@ -49,6 +49,8 @@
                         </div>
                     </div>
                     <hr>
+
+                    @foreach ($products as $product)
                     <div class="row pb-5">
                         <div  class="col-md-6 mb-4">
                             <div class="card-horizontal">
@@ -59,8 +61,8 @@
                                     <img src="assets/images/product_4.png" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
-                                <h5 class="card-title">BEEF MEATBALLS</h5>
-                                <p class="card-text">IDR 65,000</p>
+                                <h5 class="card-title">{{ $product->name }}</h5>
+                                <p class="card-text">{{ $product->price }}</p>
                                 </div>
                             </div>
                         </div>
@@ -72,29 +74,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row pb-5">
-                        <div  class="col-md-6 mb-4">
-                            <div class="card-horizontal">
-                                <a href="">
-                                    <div class="trash"></div>
-                                </a>
-                                <div class="img-wrapper">
-                                    <img src="assets/images/product_4.png" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                <h5 class="card-title">BEEF MEATBALLS</h5>
-                                <p class="card-text">IDR 65,000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex align-items-center">
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-danger minus">-</button>
-                                <input type="text" class="form-control text-center" id="amount" placeholder="1">
-                                <button class="btn btn-danger plus">+</button>
-                            </div>
-                        </div>
-                    </div>
+                        
+                    @endforeach
                 </div>
                 <div class="col-md-4 cart-totals">
                     <h5>Cart Totals</h5>

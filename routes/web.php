@@ -25,6 +25,7 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('/blogs', [BlogController::class, 'index']);
 
 Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{slug}', [ProductController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

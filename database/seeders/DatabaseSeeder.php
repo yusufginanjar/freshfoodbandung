@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "pork-bacon-250gr",
             'price' => "@ Rp52.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Pork",
         ]);
         Product::create([
@@ -50,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "pork-bacon-2-3-pack",
             'price' => "@ Rp 48.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Pork",
         ]);
         Product::create([
@@ -57,6 +59,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "pork-bacon-4-pack-and-more",
             'price' => "@ Rp 44.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Pork",
         ]);
         Product::create([
@@ -64,6 +67,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "ribs-+540gr",
             'price' => "Rp 145.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Pork",
         ]);
         Product::create([
@@ -71,6 +75,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "ham-500gr",
             'price' => "Rp 75.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Pork",
         ]);
         Product::create([
@@ -78,6 +83,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "meatballs-500gr",
             'price' => "Rp 63.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Pork",
         ]);
         Product::create([
@@ -85,6 +91,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "bratwurst-600gr",
             'price' => "Rp 105.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Pork",
         ]);
 
@@ -93,6 +100,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "beef-bacon-500gr",
             'price' => "Rp 75.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Beef",
         ]);
         Product::create([
@@ -100,6 +108,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "oxtall-1kg",
             'price' => "Rp 98.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Beef",
         ]);
         Product::create([
@@ -107,6 +116,7 @@ class DatabaseSeeder extends Seeder
             'slug' => "meatballs-500gr",
             'price' => "Rp 68.000",
             'image' => "",
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'badge' => "Premium Beef",
         ]);
 

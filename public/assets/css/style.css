@@ -13,7 +13,7 @@
 
 a{
     text-decoration: none;
-    color: inherit;
+    color: inherit!important;
 }
 
 .txt-orange{
@@ -190,6 +190,11 @@ h2{
     padding-bottom: 50px;
 }
 
+#home-products .card-wrapper,
+#products .card-wrapper{
+    padding-bottom: 20px;
+}
+
 #home-products .card,
 #products .card{
     border-radius: 8px;
@@ -199,6 +204,8 @@ h2{
     -webkit-box-shadow: 0px 4px 30px 0px rgba(233,120,86,0.2);
     -moz-box-shadow: 0px 4px 30px 0px rgba(233,120,86,0.2);
     border: none;
+    height: 100%;
+    position: relative;
 }
 
 #home-products .card .img-wrapper,
@@ -228,17 +235,30 @@ h2{
 #products p{
     color: var(--orange);
     font-size: 14px;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 #home-products .btn,
 #products .btn{
     height: 28px;
     padding: 0 14px;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 28px;
-    color: var(--white);
+    color: var(--white)!important;
     border-radius: 20px;
+    font-weight: 400;
 }
+
+#home-products .check-out,
+#products .check-out{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left:-40px;
+    margin-top: 20px;
+}
+
 
 #home-products .btn.more-products,
 #products .btn.more-products{

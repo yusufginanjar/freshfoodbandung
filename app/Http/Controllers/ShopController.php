@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -9,14 +11,17 @@ class ShopController extends Controller
     public function cart()
     {
         return view('cart', [
-            "title" => "Cart"
+            "title" => "Cart",
+            "products" => Product::take(6)->get()
         ]);
     }
 
     public function checkout()
     {
         return view('checkout', [
-            "title" => "Checkout"
+            "title" => "Checkout",
+            // "user" => User::()
+
         ]);
     }
 

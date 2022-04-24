@@ -716,6 +716,8 @@ footer li.address::before{
     background: url('../icons/trash-can-solid.svg');
     background-size: contain;
     background-repeat: no-repeat;
+    border: none;
+    margin-top: 30px;
 }
 
 #cart .minus,

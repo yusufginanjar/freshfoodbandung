@@ -38,67 +38,66 @@
         <div class="container">
             <div class="row">
                 <div class="">
-                    <form>
+                    <form action="/checkout" method="POST">
+                        @csrf
                         <div class="row">
                         <div class="col-md-7">
                             <label for="first_name" class="form-label">First name*</label>
                             <input type="text" class="form-control" id="first_name" name="first_name" value="{{ old('first_name') }}">
                             <label for="last_name" class="form-label">Last name*</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" >
+                            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ old('last_name') }}">
 
                             <label for="company" class="form-label">Company Name (Optional)</label>
-                            <input type="text" class="form-control" id="company" name="company" >
+                            <input type="text" class="form-control" id="company" name="company" value="{{ old('company') }}">
 
                             <label for="country" class="form-label">Country/Region</label>
-                            <input type="text" class="form-control" id="country" name="country" value="Indonesia">
+                            <input type="text" class="form-control" id="country" name="country" value="Indonesia" value="{{ old('country') }}">
 
                             <label for="province" class="form-label">Province*</label>
-                            <input type="text" class="form-control" id="province" name="province" >
+                            <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}">
 
                             <label for="address" class="form-label">Complete Address*</label>
-                            <input type="text" class="form-control" id="address" name="address" >
+                            <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}">
 
                             <label for="postcode" class="form-label">Postcode/ZIP</label>
-                            <input type="text" class="form-control" id="postcode" name="postcode" >
+                            <input type="text" class="form-control" id="postcode" name="postcode" value="{{ old('postcode') }}">
 
-                            <label for="wa" class="form-label">whatsapp Number*</label>
-                            <input type="text" class="form-control" id="wa" name="wa" >
+                            <label for="whatsapp" class="form-label">whatsapp Number*</label>
+                            <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ old('whatsapp') }}">
                             
                             <div class="mb-3 checkbox">
-                                <input type="checkbox" class="form-check-input" id="checkbox">
-                                <label class="form-check-label" id="checkbox-label" for="checkbox">(Alternative) I don't have WhatsApp number and want to reveice info via e-mail</label>
+                                <input type="checkbox" class="form-check-input" name="not_whatsapp" id="not_whatsapp">
+                                <label class="form-check-label" id="checkbox-label" for="not_whatsapp">(Alternative) I don't have WhatsApp number and want to reveice info via e-mail</label>
                             </div>
 
                             <label for="email" class="form-label">Email address*</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
 
                             <label for="notes" class="form-label">Order Notes (optional)</label>
-                            <input type="notes" class="form-control" id="notes">
+                            <input type="notes" class="form-control" id="notes" name="notes" value="{{ old('notes') }}">
 
 
                         </div>
                         <div class="col-md-5 orders">
                             <h4 class="title">Your Order</h4>
                             <h5>Products</h5>
-                            <hr>
-                            <div class="mt-4 mb-2">
-                                <h6>BEEF MEATBALLS</h6>
-                                <h6 class="txt-orange">IDR 161,000</h6>
-                            </div>
+                            <hr class="mb-4">
+
+                            @foreach ($products->detail as $item)
                             <div class="mb-2">
-                                <h6>PORK BRATWURST</h6>
-                                <h6 class="txt-orange">IDR 145,000</h6>
+                                <h6>{{ $item->product->name }}</h6>
+                                <h6 class="txt-orange">IDR {{ number_format($item->subtotal, 2) }}</h6>
                             </div>
+                            @endforeach
                             <hr>
                             <div class="checkout-total mb-4">
                                 <h5>Total</h5>
-                                <h5 class="ms-auto ">IDR 161,000</h5>
+                                <h5 class="ms-auto ">IDR {{ number_format($products->total, 2) }}</h5>
                             </div>
 
                             <p>Prices above do not include shipping cost. We will inform you the shipping costs via WhatsApp after Order process finished.</p>
                             <button type="submit" class="btn btn-danger my-4 add-cart">
-                                <!-- temporary href -->
-                                <a href="completed.html">Checkout</a>
+                                Checkout
                                 </button>
                         </div>
                     </div>

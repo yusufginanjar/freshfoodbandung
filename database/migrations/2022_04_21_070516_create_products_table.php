@@ -17,7 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('price');
+            $table->string('currency');
+            $table->double('price', 12, 2)->default(0);
             $table->string('badge');
             $table->text('description');
             $table->string('image');

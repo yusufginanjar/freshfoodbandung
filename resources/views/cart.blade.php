@@ -1,3 +1,5 @@
+{{-- @dd($products) --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,27 +52,46 @@
                     </div>
                     <hr>
 
-                    @foreach ($products as $product)
+                    @foreach ($products->detail as $item)
                     <div class="row pb-5">
                         <div  class="col-md-6 mb-4">
                             <div class="card-horizontal">
-                                <a href="">
+                                {{-- <a href="">
                                     <div class="trash"></div>
-                                </a>
+                                </a> --}}
+                                <form action="{{ route('cartdetail.destroy', $item->id) }}" method="post" style="display:inline;">
+                                    @csrf
+                                    {{ method_field('delete') }}
+                                    <button type="submit" class="trash"></button>                    
+                                  </form>
                                 <div class="img-wrapper">
                                     <img src="assets/images/product_4.png" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
-                                <h5 class="card-title">{{ $product->name }}</h5>
-                                <p class="card-text">{{ $product->price }}</p>
+                                <h5 class="card-title">{{ $item->product->name }}</h5>
+                                <p class="card-text">{{ $item->product->price }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 d-flex align-items-center">
                             <div class="d-flex align-items-center">
-                                <button class="btn btn-danger minus">-</button>
-                                <input type="text" class="form-control text-center" id="amount" placeholder="1">
-                                <button class="btn btn-danger plus">+</button>
+                                <form action="{{ route('cartdetail.update',$item->id) }}" method="post">
+                                    @method('patch')
+                                    @csrf()
+                                      <input type="hidden" name="param" value="minus">
+                                      <button class="btn btn-danger minus">-</button>
+                                    </form>
+                                
+                                <input type="text" class="form-control text-center" id="amount" value="{{ $item->qty }}" disabled>
+                                <form action="{{ route('cartdetail.update',$item->id) }}" method="post">
+                                    @method('patch')
+                                    @csrf()
+                                      <input type="hidden" name="param" value="plus">
+                                      <button class="btn btn-danger plus">
+                                      +
+                                      </button>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -81,18 +102,21 @@
                     <h5>Cart Totals</h5>
                     <div class="d-flex mt-4 mb-2">
                         <h5>Sub Total</h5>
-                        <h5 class="ms-auto fw-bold">IDR 161,000</h5>
+                        <h5 class="ms-auto fw-bold">IDR {{ number_format($products->subtotal, 2) }}</h5>
                     </div>
                     <div class="d-flex">
                         <h5>Total</h5>
-                        <h5 class="ms-auto fw-bold">IDR 161,000</h5>
+                        <h5 class="ms-auto fw-bold">IDR {{ number_format($products->total, 2) }}</h5>
                     </div>
-                    <form class="my-4 checkout">
+                    <div class="my-4 checkout">
                         <!-- temporary HREF -->
-                        <button type="submit" class="btn btn-danger mb-4 add-cart">
-                            Checkout
-                            </button>
-                      </form>
+                        <a href="/checkout">
+                            <button class="btn btn-danger mb-4 add-cart">
+                                Checkout
+                        </button>
+
+                        </a>
+                      </div>
                 </div>
             </div>
          </div>

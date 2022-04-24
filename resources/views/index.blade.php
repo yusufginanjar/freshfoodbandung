@@ -71,8 +71,14 @@
                             </div>
                             <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ $product->price }}</p>
-                            <a href="cart.html" class="btn btn-danger check-out">Check Out</a>
+                            <p class="card-text">{{ $product->currency }} {{ $product->price }}</p>
+                            <form action="{{ route('cartdetail.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value={{$product->id}}>
+                                <button type="submit" class="btn btn-danger check-out">
+                                    Add to Cart
+                                    </button>
+                              </form>
                             </div>
                             <div class="label">
                                 <span>{{ $product->badge }}</span>

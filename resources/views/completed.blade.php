@@ -30,7 +30,7 @@
                 <img src="assets/images/completed.png" alt="">
             </div>
             <h6>
-                We will send billing information via whatsapp to +6285643773721
+                We will send billing information via {{ $media }} to {{ $contact }}
             </h6>
             <a href="/" class="text-decoration-underline mt-4 txt-orange ">back to home</a>
         </div>

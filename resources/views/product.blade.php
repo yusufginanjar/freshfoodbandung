@@ -84,19 +84,16 @@
                             <h3 class="name-product">
                                 {{ $product->name }}
                             </h3>
-                            <h6 class="price">{{ $product->price }}</h6>
+                            <h6 class="price">{{ $product->currency }} {{ $product->price }}</h6>
                             <div class="description">
                                 <h6>Description</h6>
                                 <p>{{ $product->description }}</p>
                             </div>
-                            <form class="">
-                                <div class="d-flex">
-                                    <button class="btn btn-danger mb-4 minus">-</button>
-                                    <input type="text" class="form-control text-center" id="amount" placeholder="1">
-                                    <button class="btn btn-danger plus">+</button>
-                                </div>
+                            <form action="{{ route('cartdetail.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value={{$product->id}}>
                                 <button type="submit" class="btn btn-danger mb-4 add-cart">
-                                    <a href="cart.html">Add to Cart</a>
+                                    Add to Cart
                                     </button>
                               </form>
                          </div>

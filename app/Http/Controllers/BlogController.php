@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use GuzzleHttp\Psr7\Request;
 
 class BlogController extends Controller
 {
@@ -15,8 +16,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog', [
-            "title" => "Blog",
+        return view('blogs', [
+            "title" => "Blogs",
             "blogs" => Blog::all()
         ]);
     }
@@ -48,9 +49,15 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($slug)
     {
-        //
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $recentBlogs = Blog::latest()->take(3)->get();
+        return view('blog', [
+            "title" => "Blog",
+            'blog' => $blog,
+            'recentBlogs' => $recentBlogs
+        ]);
     }
 
     /**

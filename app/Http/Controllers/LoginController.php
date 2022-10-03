@@ -18,7 +18,7 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
@@ -29,6 +29,14 @@ class LoginController extends Controller
         }
 
         return back()->with('loginError', 'Login Failed');
+    }
+
+
+    public function guestauthenticate(Request $request)
+    {
+
+        $request->session()->regenerate();
+        return redirect()->intended('/products');
     }
 
 

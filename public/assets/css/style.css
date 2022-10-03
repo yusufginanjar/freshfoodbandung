@@ -564,6 +564,16 @@ footer li.address::before{
     margin-bottom: 10px;
 }
 
+#page-products #menus button{
+    border: 0;
+    padding:4px;
+    font-weight: 400;
+    color: var(--red);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+
 #page-products #menus ul{
     list-style-type: none;
     padding-left: 0;
@@ -868,6 +878,7 @@ footer li.address::before{
 #blogs .navbar,
 #blog .navbar{
     margin-bottom: 60px;
+    color: var(--red);
 }
 
 

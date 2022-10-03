@@ -1,5 +1,3 @@
-{{-- @dd($products) --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +37,7 @@
     <section id="single">       
         <div class="container">
                 
-
+            @if(isset($products))
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
@@ -51,14 +49,10 @@
                         </div>
                     </div>
                     <hr>
-
                     @foreach ($products->detail as $item)
                     <div class="row pb-5">
                         <div  class="col-md-6 mb-4">
                             <div class="card-horizontal">
-                                {{-- <a href="">
-                                    <div class="trash"></div>
-                                </a> --}}
                                 <form action="{{ route('cartdetail.destroy', $item->id) }}" method="post" style="display:inline;">
                                     @csrf
                                     {{ method_field('delete') }}
@@ -91,12 +85,13 @@
                                       +
                                       </button>
                                 </form>
-                                
                             </div>
                         </div>
-                    </div>
-                        
+                    </div> 
                     @endforeach
+                    <div class="" style="margin-bottom: 100px">
+                        <p><a href="/products"><u>See more Products</u></a></p>
+                    </div>
                 </div>
                 <div class="col-md-4 cart-totals">
                     <h5>Cart Totals</h5>
@@ -109,7 +104,6 @@
                         <h5 class="ms-auto fw-bold">IDR {{ number_format($products->total, 2) }}</h5>
                     </div>
                     <div class="my-4 checkout">
-                        <!-- temporary HREF -->
                         <a href="/checkout">
                             <button class="btn btn-danger mb-4 add-cart">
                                 Checkout
@@ -119,11 +113,14 @@
                       </div>
                 </div>
             </div>
+            @else
+            <div class="mt-4 text-center" style="margin-bottom: 100px">
+                <p>No item in cart! <a href="/products"><u>Back to Products</u></a></p>
+            </div>
+            @endif
+
          </div>
     </section>
-
-    
-
     @include('partials.footer')
 
 </body>

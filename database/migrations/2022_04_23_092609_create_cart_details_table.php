@@ -17,8 +17,8 @@ class CreateCartDetailsTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->integer('cart_id')->unsigned();
-            $table->double('qty', 12, 2)->default(0);
-            $table->double('price', 12, 2)->default(0);
+            $table->double('qty', 12, 2)->default(0)->unsigned();
+            $table->double('price', 12, 2)->default(0)->unsigned();
             // $table->double('diskon', 12, 2)->default(0);
             $table->double('subtotal', 12, 2)->default(0);
             // $table->foreign('cart_id')->references('id')->on('cart');

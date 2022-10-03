@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\ShippingAddress;
+use App\Models\Order;
+use App\Http\Controllers\MailController;
 
 class CartController extends Controller
 {
@@ -20,19 +22,14 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $itemuser = $request->user();
-        // $user = Auth::user();
-        // @dd($user);
         $itemcart = Cart::where('user_id', $itemuser->id)
             ->where('status_cart', 'cart')
             ->first();
-        if ($itemcart) {
-            return view('cart', [
-                "title" => "Cart",
-                "products" => $itemcart
-            ])->with('no', 1);
-        } else {
-            return abort('404');
-        }
+
+        return view('cart', [
+            "title" => "Cart",
+            "products" => $itemcart
+        ])->with('no', 1);
     }
 
     public function checkout(Request $request)
@@ -54,8 +51,6 @@ class CartController extends Controller
 
         return view('checkout', [
             "title" => "Checkout",
-            // "user" => User::()
-
         ]);
     }
 
@@ -78,40 +73,85 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $itemuser = $request->user();
+
+        $this->validate($request, [
+            'first_name' => 'required|min:3',
+            'country' => 'required',
+            'province' => 'required|min:3',
+            'address' => 'required|min:8',
+            'email' => 'required|email',
+        ]);
+
+
+        // $itemuser = $request->user();
         if ($request->has('not_whatsapp') === true) {
-            $request['not_whatsapp'] = true;
+            $request['not_whatsapp'] = 1;
+            $request['whatsapp'] = 'Not Using Whatsapp';
         } else {
-            $request['not_whatsapp'] = false;
+            $request['not_whatsapp'] = 0;
+            $this->validate($request, [
+                'whatsapp' => 'required',
+            ]);
         }
 
-
-
-        $request['user_id'] = $itemuser->id;
-        ShippingAddress::create($request->all());
-
-
+        $userId = Auth::user()->id;
         $itemcart = Cart::where('status_cart', 'cart')
-            ->where('user_id', $itemuser->id)
+            ->where('user_id', $userId)
             ->first();
-        if ($itemcart) {
-            $shippingaddress = ShippingAddress::where('user_id', $itemuser->id)->first();
 
-            $contact = $shippingaddress->whatsapp;
-            $media = 'whatsapp';
-            // @dd($shippingaddress->not_whatsapp);
-            if ($shippingaddress->not_whatsapp == 1) {
-                $contact = $shippingaddress->email;
+        $request['cart_id'] = $itemcart->id;
+
+        if ($itemcart) {
+            Order::create($request->all());
+
+            $media = 'email and whatsapp';
+            $contact = $request['email'] . ' and ' . $request['whatsapp'];
+            if ($request['not_whatsapp'] == 1) {
+                $contact = $request['email'];
                 $media = 'email';
             };
 
+            $carts = Cart::where('user_id', $userId)
+                ->where('status_cart', 'cart')
+                ->first();
+
+
+            app('App\Http\Controllers\MailController')->sendEmail($request, $carts);
+
+            $itemcart->update(['status_cart' => 'checkout']);
             return view('completed', [
                 "title" => "Completed",
                 "contact" => $contact,
                 "media" => $media
             ]);
+        } else {
+            return abort('404');
         }
+
+
+        // ShippingAddress::create($request->all());
+
+
+        // if ($itemcart) {
+
+        //     $shippingaddress = ShippingAddress::where('user_id', $itemuser->id)->first();
+
+        //     $contact = $request['email'] . ' and ' . $request['whatsapp'];
+        //     $media = 'email and whatsapp';
+
+        //     if ($request['not_whatsapp'] == 1) {
+        //         $contact = $request['email'];
+        //         $media = 'email';
+        //     };
+
+        //     return view('completed', [
+        //         "title" => "Completed",
+        //         "contact" => $contact,
+        //         "media" => $media
+        //     ]);
+        // }
     }
+
 
     /**
      * Display the specified resource.

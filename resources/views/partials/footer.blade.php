@@ -8,14 +8,14 @@
                     visit us on:
                 </p>
                 <div class="d-flex">
-                    <a href="">
+                    <a href="https://www.shopee.co.id/verlin29">
                         <div class="img-wrapper">
-                            <img src="assets/icons/shopee-logo.svg" alt="">
+                            <img src="../assets/icons/shopee-logo.svg" alt="">
                         </div>
                     </a>
-                    <a href="">
+                    <a href="https://wa.me/6281296033251">
                         <div class="img-wrapper">
-                            <img src="assets/icons/whatsapp-logo.svg" alt="">
+                            <img src="../assets/icons/whatsapp-logo.svg" alt="">
                         </div>
                     </a>
                 </div>
@@ -23,11 +23,11 @@
             </div>
             <div class="col-md-5">
                 <ul>
-                    <a href="">
-                        <li class="tiktok">@fresh_food_bandung</li>
+                    <a href="https://vt.tiktok.com/ZSdy13u5D">
+                        <li class="tiktok">@freshfoodbandung</li>
                     </a>
-                    <a href="">
-                        <li class="whatsapp">+6285643773721</li>
+                    <a href="https://wa.me/6281296033251">
+                        <li class="whatsapp">+6281296033251</li>
                     </a>
                     <a href="">
                         <li class="address">Margaasih, Kab. Bandung, 40218</li>
@@ -40,4 +40,4 @@
     </div>
 </footer>
 
-<script src="assets/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+<script src="../../assets/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>

@@ -20,14 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
-
-            // $table->string('company')->nullable();;
-            // $table->string('province');
-            // $table->string('address');
-            // $table->string('zip_code');
             $table->string('whatsapp');
-
-            // $table->text('order_notes')->nullable();
+            $table->string('status')->default('user');
             $table->timestamps();
         });
     }

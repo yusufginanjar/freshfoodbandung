@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Food Bandung | login </title>
+    <title>Fresh Food Bandung | Login </title>
     <link rel="stylesheet" href="assets/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -32,7 +32,13 @@
                         @csrf
                         <div class="wrapper mb-4">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" 
+                            @if(session()->has('guestemail'))
+                                value="{{ session('guestemail') }}"                                 
+                            @else
+                                value="{{ old('email') }}"                         
+                            @endif
+                            required autofocus>
 
                             @error('email')
                             <div class="invalid-feedback">
@@ -42,7 +48,11 @@
                             
                             
                             <label for="password" class="mt-2 form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
+                            <input type="password" class="form-control" id="password" name="password"
+                            @if(session()->has('guestpassword'))
+                                value="{{ session('guestpassword') }}"                                                         
+                            @endif
+                            required>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -50,30 +60,31 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="/signup">
-                                    <div class="btn btn btn-outline-danger add-cart">
+                                    <div class="btn btn btn-outline-danger add-cart mb-4">
                                         Create Account
                                     </div>
                                 </a>
                             </div>
                         </div>
                     </form>
+                    <form action="/guestsignup" method="POST">
+                        @csrf
+                        <button type="submit" class="text-decoration-underline text-muted" style="background-color: transparent; border: none">Continue as a guest</button>
+                    </form>
                 </div>
                 <div class="col-md-6 right-side">
                     <div class="for-large d-flex align-items-center">
                         <div class="wrapper">
                             <h6>WELCOME TO</h6>
-                            <h2>FRESH FOOR BANDUNG</h2>
+                            <h2>FRESH FOOD BANDUNG</h2>
                             <hr>
                         </div>
                     </div>
-
                 </div>
+                
             </div>
         </div>
     </section>
-
-
-
 
     <script src="assets/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
 

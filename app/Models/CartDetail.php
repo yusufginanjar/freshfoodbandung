@@ -34,6 +34,13 @@ class CartDetail extends Model
     {
         $this->attributes['qty'] = $itemdetail->qty + $qty;
         $this->attributes['subtotal'] = $itemdetail->subtotal + ($qty * ($price));
+        if ($this->attributes['qty'] < 0) {
+            $this->attributes['qty'] = 0;
+        }
+        if ($this->attributes['subtotal'] < 0) {
+            $this->attributes['subtotal'] = 0;
+        }
+
         self::save();
     }
 }

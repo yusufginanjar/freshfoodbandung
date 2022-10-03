@@ -15,9 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
+
+
         return view('products', [
             "title" => "Products",
-            "products" => Product::all()
+            "products" => Product::filter(request(['search', 'filter', 'sort']))->get()
         ]);
     }
 

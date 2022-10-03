@@ -1,5 +1,3 @@
-{{-- dd($blogs) --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +15,11 @@
             @include('partials.navbar')
         <div class="container">
              <div class="row"> 
-                 <div class="col-md-6"> <!-- make display to be one column in mobile but 2 columnns in laptop-->
+                 <div class="col-md-6"> 
                      <h6 class="pre-title">Welcome to</h6>
                      <h1 class="title">Fresh Food Bandung</h1>
                      <p>We are here to provide fresh food with premium quality. Enjoy...</p>
-                     <a href="products.html" class="btn btn-warning">Shop Now</a>
+                     <a href="/products" class="btn btn-warning">Shop Now</a>
                  </div>
                  <div class="col-md-6">
                      <div class="img-wrapper hero-img">
@@ -67,7 +65,7 @@
                     <a href="/products/{{ $product->slug }}">
                         <div class="card">
                             <div class="img-wrapper">
-                                <img src="assets/images/product_1.png" class="card-img-top" alt="...">
+                                <img src="assets/images/{{ $product->image }}" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
@@ -90,7 +88,7 @@
 
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <a href="products.html" class="btn btn-danger more-products">More Products</a>
+                <a href="/products" class="btn btn-danger more-products">More Products</a>
             </div>
         </div>
     </section>
@@ -101,14 +99,14 @@
             <div class="row">
                 @foreach ($blogs as $blog)
                     <div class="col-md-4 blog">
-                        <a href="blog/{{ $blog->slug }}">
+                        <a href="blogs/{{ $blog->slug }}">
                             <div class="blog-wrapper">
                                 <h4 class="blog-title">
                                     {{ $blog->title }}
                                 </h4>
-                                <p class="blog-date">{{ $blog->created_at }}</p>
+                                <p class="blog-date">{{ ($blog->created_at)->isoFormat('dddd D Y') }}</p>
                                 <hr>
-                                <p>{{ $blog->excerpt }}</p>
+                                {!! $blog->excerpt !!}</div>
                             </div>
                         </a>
                     </div>
@@ -135,11 +133,9 @@
 
                 @foreach ($galleries as $gallery)
                 <div class="col-6 col-md-3 col-lg-2">
-                    <a href="single.html">
                         <div class="img-wrapper">
                             <img src="assets/images/{{ $gallery->image }}" alt="">
                        </div>
-                   </a>
                 </div>
                 @endforeach
      

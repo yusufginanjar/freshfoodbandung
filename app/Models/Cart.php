@@ -38,6 +38,13 @@ class Cart extends Model
         // @dd($itemcart->subtotal, $subtotal);
         $this->attributes['subtotal'] = (float)$itemcart->subtotal + (float)$subtotal;
         $this->attributes['total'] = (float)$itemcart->total + (float)$subtotal;
+
+        if ($this->attributes['subtotal'] < 0) {
+            $this->attributes['subtotal'] = 0;
+        }
+        if ($this->attributes['total'] < 0) {
+            $this->attributes['total'] = 0;
+        }
         self::save();
     }
 }

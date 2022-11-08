@@ -26,7 +26,7 @@
                     <div class="container">
                         <h5 class="txt-red">Recent Posts</h5>
                         @foreach ($recentBlogs as $item)
-                            <a href="/blogs/{{ $item->slug }}"><p>{{ $item->title }}</p></a>
+                            <a href="{{ config('app.path') }}/blogs/{{ $item->slug }}"><p>{{ $item->title }}</p></a>
                         @endforeach
                     </div>
                 </div>

@@ -11,6 +11,8 @@ class IndexController extends Controller
 {
     public function index()
     {
+        // debug time zone
+
         return view('index', [
             "title" => "Home",
             "products" => Product::take(6)->get(),

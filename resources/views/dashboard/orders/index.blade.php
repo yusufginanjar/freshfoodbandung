@@ -10,7 +10,7 @@
                 {{ session('success') }}    
             </div>            
         @endif
-        <a href="/dashboard/products/create" class="btn btn-primary my-3">Add new product</a>
+        <a href="/{{ config('app.path') }}/dashboard/products/create" class="btn btn-primary my-3">Add new product</a>
         <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -39,8 +39,8 @@
                 <td>{{ $order->notes }}</td>
                 <td>{{ $order->created_at }}</td>
                 <td>
-                    <a href="/dashboard/orders/{{ $order->id }}" class="badge bg-info"><span data-feather="eye"></span> Detail</a>
-                    <form action="/dashboard/orders/{{ $order->id }}" method="POST" class="d-inline ">
+                    <a href="/{{ config('app.path') }}/dashboard/orders/{{ $order->id }}" class="badge bg-info"><span data-feather="eye"></span> Detail</a>
+                    <form action="/{{ config('app.path') }}/dashboard/orders/{{ $order->id }}" method="POST" class="d-inline ">
                         @method('delete')
                         @csrf
                         <button type="submit" class="badge bg-danger border-0 my-2" onclick="return confirm('Are you sure this order already finished?')"><span data-feather="x-circle"></span> Finish</button>

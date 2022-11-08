@@ -2,6 +2,9 @@
 
 return [
 
+    // custom folder or path
+    'path' => '/freshfoodbandung',
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

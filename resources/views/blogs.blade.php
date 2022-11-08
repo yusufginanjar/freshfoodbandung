@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-8">
                     @foreach ($blogs as $blog)
-                        <a href="/blogs/{{ $blog->slug }}">
+                        <a href="/{{ config('app.path') }}/blogs/{{ $blog->slug }}">
                             <div class="item-blog m">
                                 <h4 class="title">{{ $blog->title }}</h4>
                                 <p class="date">{{ ($blog->created_at)->isoFormat('dddd D Y') }}</p>
@@ -32,7 +32,7 @@
                     <div class="container">
                         <h5 class="txt-red">Recent Posts</h5>
                             @foreach ($blogs as $blog)
-                                <a href="/blogs/{{ $blog->slug }}"><p>{{ $blog->title }}</p></a>
+                                <a href="/{{ config('app.path') }}/blogs/{{ $blog->slug }}"><p>{{ $blog->title }}</p></a>
                             @endforeach
                     </div>
                 </div>

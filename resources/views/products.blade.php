@@ -19,14 +19,14 @@
             <div class="row">
                 <div class="col-md-3">
                     <h3>
-                        <a href="/">Home</a><a href="/products">/Products</a>
+                        <a href="/{{ config('app.path') }}/">Home</a><a href="/{{ config('app.path') }}/products">/Products</a>
                     </h3>
                 </div>
                 <div class="col-md-3">
 
                 </div>
                 <div class="col-md-3">
-                    <form class="d-flex" action="/products">
+                    <form class="d-flex" action="/{{ config('app.path') }}/products">
                         <input type="text" class="form-control me-2" placeholder="search" name="search">
                     </form>
                 </div>
@@ -38,20 +38,20 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="sort">
                               <li>
-                                <form class="d-flex" action="/products">
+                                <form class="d-flex" action="/{{ config('app.path') }}/products">
                                     <input type="hidden" name="sort" value="name">
                                     <button type="submit" class="btn btn btn-link">A - Z</button>
                                 </form>
                               </li>
                               <li>
-                                  <form class="d-flex" action="/products">
+                                  <form class="d-flex" action="/{{ config('app.path') }}/products">
                                     <input type="hidden" name="sort" value="lowest-price">
                                     <button type="submit" class="btn btn btn-link">Lowest Price</button>
                                 </form>
                             </li>
                               <li>
                               <li>
-                                  <form class="d-flex" action="/products">
+                                  <form class="d-flex" action="/{{ config('app.path') }}/products">
                                     <input type="hidden" name="sort" value="highest-price">
                                     <button type="submit" class="btn btn btn-link">Highest Price</button>
                                 </form>
@@ -65,13 +65,13 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="filter">
                               <li> 
-                                  <form class="d-flex" action="/products">
+                                  <form class="d-flex" action="/{{ config('app.path') }}/products">
                                         <input type="hidden" name="filter" value="Premium Pork">
                                         <button type="submit" class="btn btn btn-link">Premium Pork</button>
                                   </form>
                               </li>
                               <li> 
-                                  <form class="d-flex" action="/products">
+                                  <form class="d-flex" action="/{{ config('app.path') }}/products">
                                         <input type="hidden" name="filter" value="Premium Beef">
                                         <button type="submit" class="btn btn btn-link">Premium Beef</button>
                                   </form>
@@ -92,7 +92,7 @@
             <div class="row">
                 @foreach ($products as $product)
                     <div class="col-6 col-lg-2 col-md-3 card-wrapper">
-                        <a href="/products/{{ $product->slug }}">
+                        <a href="/{{ config('app.path') }}/products/{{ $product->slug }}">
                             <div class="card">
                                 <div class="img-wrapper">
                                     <img src="assets/images/{{ $product->image }}" class="card-img-top" alt="...">

@@ -13,7 +13,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="container-fluid d-flex justify-content-center">
-                    <a class="navbar-brand" href="/{{ config('app.path') }}/">
+                    <a class="navbar-brand" href="{{ config('app.path') }}/">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </div>
@@ -32,7 +32,7 @@
             <h6>
                 We will send billing information via {{ $media }} to {{ $contact }}
             </h6>
-            <a href="/{{ config('app.path') }}/" class="text-decoration-underline mt-4 txt-orange ">back to home</a>
+            <a href="{{ config('app.path') }}/" class="text-decoration-underline mt-4 txt-orange ">back to home</a>
         </div>
     </section>
     <script src="assets/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>

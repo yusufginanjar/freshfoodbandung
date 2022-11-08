@@ -28,7 +28,7 @@
                     @endif
 
                     <h1>LOGIN</h1>
-                    <form action="/{{ config('app.path') }}/login" method="POST">
+                    <form action="/login" method="POST">
                         @csrf
                         <div class="wrapper mb-4">
                             <label for="email" class="form-label">Email</label>
@@ -59,7 +59,7 @@
                                 <button type="submit" class="btn btn-danger add-cart mb-4">Login</button>
                             </div>
                             <div class="col-md-6">
-                                <a href="/{{ config('app.path') }}/signup">
+                                <a href="{{ config('app.path') }}/signup">
                                     <div class="btn btn btn-outline-danger add-cart mb-4">
                                         Create Account
                                     </div>
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </form>
-                    <form action="/{{ config('app.path') }}/guestsignup" method="POST">
+                    <form action="/guestsignup" method="POST">
                         @csrf
                         <button type="submit" class="text-decoration-underline text-muted" style="background-color: transparent; border: none">Continue as a guest</button>
                     </form>

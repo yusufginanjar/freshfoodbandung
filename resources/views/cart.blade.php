@@ -13,7 +13,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="container-fluid d-flex justify-content-center">
-                    <a class="navbar-brand" href="/{{ config('app.path') }}/">
+                    <a class="navbar-brand" href="{{ config('app.path') }}/">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </div>
@@ -90,7 +90,7 @@
                     </div> 
                     @endforeach
                     <div class="" style="margin-bottom: 100px">
-                        <p><a href="/{{ config('app.path') }}/products"><u>See more Products</u></a></p>
+                        <p><a href="{{ config('app.path') }}/products"><u>See more Products</u></a></p>
                     </div>
                 </div>
                 <div class="col-md-4 cart-totals">
@@ -104,7 +104,7 @@
                         <h5 class="ms-auto fw-bold">IDR {{ number_format($products->total, 2) }}</h5>
                     </div>
                     <div class="my-4 checkout">
-                        <a href="/{{ config('app.path') }}/checkout">
+                        <a href="{{ config('app.path') }}/checkout">
                             <button class="btn btn-danger mb-4 add-cart">
                                 Checkout
                         </button>
@@ -115,7 +115,7 @@
             </div>
             @else
             <div class="mt-4 text-center" style="margin-bottom: 100px">
-                <p>No item in cart! <a href="/{{ config('app.path') }}/products"><u>Back to Products</u></a></p>
+                <p>No item in cart! <a href="{{ config('app.path') }}/products"><u>Back to Products</u></a></p>
             </div>
             @endif
 

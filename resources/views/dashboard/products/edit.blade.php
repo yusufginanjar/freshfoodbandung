@@ -9,7 +9,7 @@
 <div class="col-lg-8">
 
 
-    <form method="POST" action="/{{ config('app.path') }}/dashboard/products/{{ $product->id }}" class="mb-5" enctype="multipart/form-data">
+    <form method="POST" action="/dashboard/products/{{ $product->id }}" class="mb-5" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">

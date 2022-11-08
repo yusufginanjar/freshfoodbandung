@@ -12,7 +12,7 @@
     <section>
         <div class="container">
             <h1 class="text-center">SIGN UP</h1>
-            <form action="/{{ config('app.path') }}/signup" method="POST">
+            <form action="/signup" method="POST">
                 @csrf
                 <div class="wrapper mb-4">
                     <div class="row">

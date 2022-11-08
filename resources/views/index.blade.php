@@ -19,7 +19,7 @@
                      <h6 class="pre-title">Welcome to</h6>
                      <h1 class="title">Fresh Food Bandung</h1>
                      <p>We are here to provide fresh food with premium quality. Enjoy...</p>
-                     <a href="/{{ config('app.path') }}/products" class="btn btn-warning">Shop Now</a>
+                     <a href="{{ config('app.path') }}/products" class="btn btn-warning">Shop Now</a>
                  </div>
                  <div class="col-md-6">
                      <div class="img-wrapper hero-img">
@@ -62,7 +62,7 @@
 
                 @foreach ($products as $product)
                 <div class="col-6 col-lg-2 col-md-3 card-wrapper">
-                    <a href="/{{ config('app.path') }}/products/{{ $product->slug }}">
+                    <a href="{{ config('app.path') }}/products/{{ $product->slug }}">
                         <div class="card">
                             <div class="img-wrapper">
                                 <img src="assets/images/{{ $product->image }}" class="card-img-top" alt="...">
@@ -88,7 +88,7 @@
 
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <a href="/{{ config('app.path') }}/products" class="btn btn-danger more-products">More Products</a>
+                <a href="{{ config('app.path') }}/products" class="btn btn-danger more-products">More Products</a>
             </div>
         </div>
     </section>

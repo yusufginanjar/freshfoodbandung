@@ -13,7 +13,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="container-fluid d-flex justify-content-center">
-                    <a class="navbar-brand" href="/{{ config('app.path') }}/">
+                    <a class="navbar-brand" href="{{ config('app.path') }}/">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                 </div>
@@ -47,7 +47,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="/{{ config('app.path') }}/checkout" method="POST">
+                    <form action="/checkout" method="POST">
                         @csrf
                         <div class="row">
                         <div class="col-md-7">

@@ -10,7 +10,7 @@
                 {{ session('success') }}    
             </div>            
         @endif
-        <a href="/{{ config('app.path') }}/dashboard/products/create" class="btn btn-primary my-3">Add new product</a>
+        <a href="{{ config('app.path') }}/dashboard/products/create" class="btn btn-primary my-3">Add new product</a>
         <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -29,8 +29,8 @@
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->badge }}</td>
                 <td>
-                    <a href="/{{ config('app.path') }}/dashboard/products/{{ $product->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-                    <form action="/{{ config('app.path') }}/dashboard/products/{{ $product->id }}" method="POST" class="d-inline">
+                    <a href="{{ config('app.path') }}/dashboard/products/{{ $product->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                    <form action="/dashboard/products/{{ $product->id }}" method="POST" class="d-inline">
                         @method('delete')
                         @csrf
                         <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Are you sure want to delete this product?')"><span data-feather="x-circle"></span></button>

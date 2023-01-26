@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Fresh Food Bandung</title>
-    <link rel="stylesheet" href="../../../assets/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="{{ config('app.path') }}/../../../assets/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ config('app.path') }}/../../../assets/css/dashboard.css">
 
     <link rel="stylesheet" type="text/css" href="../../../assets/css/trix.css">
     <script type="text/javascript" src="../../../assets/js/trix.js"></script>
